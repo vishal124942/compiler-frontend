@@ -14,14 +14,16 @@ const Page1 = () => {
         console.log("Please fill in all required fields");
         return;
       }
-      const response = await axios("http://localhost:4000/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        data: JSON.stringify({ username, codelang, stdin, sourcecode }),
-      });
-      console.log(response);
+      const response = await axios(
+        "https://compiler-backend-siij.onrender.com/submit",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          data: JSON.stringify({ username, codelang, stdin, sourcecode }),
+        }
+      );
       navigate("/page2");
     } catch (error) {
       console.log(error);

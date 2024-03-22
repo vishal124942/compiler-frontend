@@ -6,7 +6,9 @@ const Page2 = () => {
   const [submissions, setSubmissions] = useState([]);
   const clearOutput = async () => {
     try {
-      const response = await axios.delete("http://localhost:4000/submissions");
+      const response = await axios.delete(
+        "https://compiler-backend-siij.onrender.com/submissions"
+      );
       console.log(response);
       setSubmissions([]);
     } catch (error) {
@@ -33,7 +35,9 @@ const Page2 = () => {
 
   const getData = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/page2");
+      const response = await axios.get(
+        "https://compiler-backend-siij.onrender.com/page2"
+      );
       setSubmissions(
         response.data.submissions.map((submission) => ({
           ...submission,
@@ -53,11 +57,14 @@ const Page2 = () => {
       if (submissionIndex === -1) return;
 
       const { sourcecode, codelang, stdin } = submissions[submissionIndex];
-      const response = await axios.post("http://localhost:4000/execute", {
-        sourcecode,
-        codelang,
-        stdin,
-      });
+      const response = await axios.post(
+        "https://compiler-backend-siij.onrender.com/execute",
+        {
+          sourcecode,
+          codelang,
+          stdin,
+        }
+      );
 
       const updatedSubmissions = [...submissions];
       updatedSubmissions[submissionIndex].output =
