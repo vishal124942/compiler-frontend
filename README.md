@@ -14,3 +14,9 @@ This Application has 2 pages
 - The Database used here is MYSQL
 - For Backend express ,nodejs is used
 - For Frontend React.js and Tailwind is used
+3.To seamlessly check application for running you can put dummy data;-
+  For example
+  1)Name-vishal
+  2) choose -JavaScript
+  3) let input field empty for now
+  4) console.log("hi"); as a source code
